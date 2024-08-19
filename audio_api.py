@@ -7,18 +7,7 @@ from whisper_transcriber import WhisperTranscriber
 
 transcriber = WhisperTranscriber()
 
-
 app = FastAPI()
-
-# @app.post("/transcribe")
-# def transcribe(file: UploadFile = File(...)):
-#     # Process the voice file here and return the transcription
-#     transcription = process_voice_file(file)
-#     return {"transcription": transcription}
-
-# def process_voice_file(file):
-#     result = transcriber(inputs = "./mlk.flac")
-#     pass
 
 @app.post("/transcribe")
 def transcribe(voice: UploadFile = File(...)):
@@ -27,7 +16,6 @@ def transcribe(voice: UploadFile = File(...)):
     # file = file.file
     # print("I receiced the file")
     return {"what": result}
-
 
 if __name__ == "__main__":
     uvicorn.run(app, host="127.0.0.1", port=8001)

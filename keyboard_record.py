@@ -9,7 +9,7 @@ record the voice with a high-pass filter with a cut-off frequency of 40 Hz
 '''
 
 
-def high_pass_filter(data, cutoff, fs, order=5):
+def high_pass_filter(data: np.ndarray, cutoff, fs, order=5) -> np.ndarray:
     nyquist = 0.5 * fs
     normal_cutoff = cutoff / nyquist
     b, a = butter(order, normal_cutoff, btype='highpass', analog=False)
@@ -24,7 +24,12 @@ def low_pass_filter(data, cutoff, fs, order=5):
     return y
 
 def record_voice() -> np.int16:
-    # Sampling rate
+    '''
+    Record voice from the microphone and apply a high-pass filter with a cut-off frequency of 40 Hz.
+    copilot generated code.
+    '''
+
+    # * Sampling rate. whisper is trained with 16kHz so this is fixed
     fs = 16000
     # Buffer to store the recording
     recording = []
@@ -81,7 +86,7 @@ def record_voice() -> np.int16:
 
     return filtered_recording
 
-# Example usage
+
 if __name__ == "__main__":
     audio_data = record_voice()
     print("Recording length:", len(audio_data))
