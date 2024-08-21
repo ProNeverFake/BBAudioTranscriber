@@ -8,8 +8,8 @@ device = "cuda:0" if torch.cuda.is_available() else "cpu"
 class WhisperTranscriber:
 
     def __init__(self):
-        self.processor = WhisperProcessor.from_pretrained("./whisper-base")
-        self.model = WhisperForConditionalGeneration.from_pretrained("./whisper-base").to(device)   
+        self.processor = WhisperProcessor.from_pretrained("./whisper-medium") # 
+        self.model = WhisperForConditionalGeneration.from_pretrained("./whisper-medium").to(device)   
         self.forced_decoder_ids = self.processor.get_decoder_prompt_ids(language="Mandarin", task="translate")
 
     def infer(self, input_speech:np.int16) -> list[str]:

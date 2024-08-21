@@ -16,8 +16,12 @@ pip3 install scipy "numpy<2" fastapi[standard] transformers
 
 # other requirements through sudo apt-get install
 # TBD, just install anything that is missing
-
 ```
+
+Then, download the model from the Huggingface model hub and save it somewhere here.
+- Just save it in this BBAudioTranscription folder
+- Be sure to download the whisper-medium model
+
 
 ## Server side running
 
